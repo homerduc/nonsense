@@ -22,8 +22,11 @@ public class scenechanger : MonoBehaviour
             do
             {
                 tirage = Random.Range(0, SceneManager.sceneCountInBuildSettings);
+                Debug.Log(SceneManager.sceneCountInBuildSettings);
+                Debug.Log($"Tirage : {tirage}, Scène actuelle : {currentSceneId}");
             }
             while (tirage == currentSceneId);
+            Debug.Log($"Chargement de la scène : {tirage}");
             SceneManager.LoadScene(tirage);
         }
     }

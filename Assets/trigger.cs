@@ -1,11 +1,7 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class tourne : MonoBehaviour
+public class trigger : MonoBehaviour
 {
-    public Vector3 rotateVal = new Vector3(0, 0, 0.1f);
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,9 +11,14 @@ public class tourne : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.isPressed)
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("trigger"))
         {
-            transform.Rotate(rotateVal);
+            Debug.Log("Trigger");
         }
     }
 }
