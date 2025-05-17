@@ -54,9 +54,12 @@ public class orbeVideoSpeedController : MonoBehaviour
     void Update()
     {
         // music volume
-        diffAbsMaxVolPoint_Orbe = Mathf.Abs(maxVolumePoint - transform.position.y);
-        volume = 1 - (diffAbsMaxVolPoint_Orbe / range);
-        audioSource.volume = Mathf.Max(0, volume);
+        if (animWasPlayed == false)
+        {
+            diffAbsMaxVolPoint_Orbe = Mathf.Abs(maxVolumePoint - transform.position.y);
+            volume = 1 - (diffAbsMaxVolPoint_Orbe / range);
+            audioSource.volume = Mathf.Max(0, volume);
+        }
 
         // "getting it" text softness
         textSoftness = 1 - volume;
